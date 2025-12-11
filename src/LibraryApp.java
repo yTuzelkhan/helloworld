@@ -67,7 +67,7 @@ public class LibraryApp {
                           } else {
                               System.out.println("This book was not borrowed.");
                           }
-                          return;
+                          break;
                       }
                   }
                   System.out.println("Book not found.");
@@ -80,7 +80,7 @@ public class LibraryApp {
                       if (b4.getId() == id3) {
                           books.remove(b4);
                           System.out.println("Book deleted!");
-                          return;
+                          break;
                       }
                   }
                   System.out.println("Book not found.");
@@ -97,14 +97,14 @@ public class LibraryApp {
             System.out.print("Enter title: ");
             title = cin.nextLine();
             if (title.isEmpty()) {
-                System.out.println("Title cannot be empty. Please try again.");
+                System.out.print("Title cannot be empty. Please try again.");
             }
         } while (title.isEmpty());
 
-        System.out.println("Enter author: ");
+        System.out.print("Enter author: ");
         String author = cin.nextLine();
 
-        System.out.println("Enter year: ");
+        System.out.print("Enter year: ");
         int year = Integer.parseInt(cin.nextLine());
 
         Book b = new Book(title, author, year);

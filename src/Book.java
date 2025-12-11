@@ -27,6 +27,15 @@ public class Book {
     public int getId(){
         return id;
     }
+    public int getyear(){
+        return year;
+    }
+    public String getTitle(){
+        return title;
+    }
+    public String getAuthor(){
+        return author;
+    }
     public boolean available1(){
         return available;
     }
