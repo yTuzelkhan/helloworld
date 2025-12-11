@@ -1,8 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+
+
+
 public class LibraryApp {
     public ArrayList<Book> books = new ArrayList<>();
     Scanner cin = new Scanner(System.in);
+
+
+
+
     public void run(){
       while(true){
           System.out.println(" Welcome to Library App!\n" +
@@ -14,17 +22,28 @@ public class LibraryApp {
                           "6. Delete a book by id\n" +
                           "7. Quit "
                   );
-          int choice = cin.nextInt();
+          int choice = Integer.parseInt(cin.nextLine());
+
           switch(choice){
               case 1:
                   if(books==null)System.out.println("No books in the library;");
                   else{
-                      for(int i=0;i<books.size();i++){System.out.println(books.get(i).toString());}
+                      for(int i=0;i<books.size();i++){System.out.println((i+1)+"."+books.get(i).getTitle());}
                   }
                   break;
+
                case 2:
-                   addBook();
+                   System.out.print("Enter title: ");
+                   String title = cin.nextLine();
+                   System.out.print("Enter author: ");
+                   String author = cin.nextLine();
+                   System.out.print("Enter year: ");
+                   int year = Integer.parseInt(cin.nextLine());
+                   Book b = new Book(title, author, year);
+                   books.add(b);
+                   System.out.println("Book added!");
                    break;
+
               case 3:
                   System.out.print("Enter part of the title: ");
                   String search = cin.nextLine().toLowerCase();
@@ -39,6 +58,7 @@ public class LibraryApp {
                       System.out.println("No matching books found.");
                   }
                   break;
+
               case 4:
                   System.out.print("Enter id: ");
                   int id = cin.nextInt();
@@ -57,6 +77,7 @@ public class LibraryApp {
                   }
                   if(!found4)System.out.println("Book not found.");
                   break;
+
               case 5:
                   System.out.print("Enter id: ");
                   int id1 = cin.nextInt();
@@ -75,9 +96,10 @@ public class LibraryApp {
                   }
                   if(!found5)System.out.println("Book not found.");
                   break;
+
               case 6:
                   System.out.print("Enter id: ");
-                  int id3 = cin.nextInt();
+                  int id3 = Integer.parseInt(cin.nextLine());;
                   boolean found6 = false;
                   for (Book b4 : books) {
                       if (b4.getId() == id3) {
@@ -89,33 +111,17 @@ public class LibraryApp {
                   }
                   if(!found6)System.out.println("Book not found.");
                   break;
+
               case 7:
                   System.out.print("GOOOOD BYEEEEE !!!! ");
                   return ;
           }
       }
     }
-    private void addBook() {
-        String title;
-        do {
-            System.out.print("Enter title: ");
-            title = cin.nextLine();
-            if (title.isEmpty()) {
-                System.out.print("Title cannot be empty. Please try again.");
-            }
-        } while (title.isEmpty());
 
-        System.out.print("Enter author: ");
-        String author = cin.nextLine();
 
-        System.out.print("Enter year: ");
-        int year = Integer.parseInt(cin.nextLine());
 
-        Book b = new Book(title, author, year);
-        books.add(b);
 
-        System.out.println("Book added!");
-    }
     public static void main(String[] args) {
         new LibraryApp().run();
     }
