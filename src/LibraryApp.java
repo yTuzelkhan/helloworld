@@ -29,7 +29,6 @@ public class LibraryApp {
                   System.out.print("Enter part of the title: ");
                   String search = cin.nextLine().toLowerCase();
                   boolean found = false;
-
                   for (Book b1 : books) {
                       if (b1.toString().toLowerCase().contains(search)) {
                           System.out.println(b1.toString());
@@ -43,25 +42,29 @@ public class LibraryApp {
               case 4:
                   System.out.print("Enter id: ");
                   int id = cin.nextInt();
+                  boolean found4 = false;
                   for (Book b2 : books) {
                       if (b2.getId() == id) {
+                          found4 = true;
                           if (b2.available1()) {
                               b2.markAsBorrowed();
                               System.out.println("Book borrowed!");
                           } else {
                               System.out.println("Book is already borrowed.");
                           }
-                          return;
+                          break;
                       }
                   }
-                  System.out.println("Book not found.");
+                  if(!found4)System.out.println("Book not found.");
                   break;
               case 5:
                   System.out.print("Enter id: ");
                   int id1 = cin.nextInt();
+                  boolean found5 = false;
                   for (Book b3 : books) {
                       if (b3.getId() == id1) {
-                          if (!b3.available1()) {
+                          found5 = true;
+                          if(!b3.available1()){
                               b3.markAsReturned();
                               System.out.println("Book returned!");
                           } else {
@@ -70,20 +73,21 @@ public class LibraryApp {
                           break;
                       }
                   }
-                  System.out.println("Book not found.");
+                  if(!found5)System.out.println("Book not found.");
                   break;
               case 6:
                   System.out.print("Enter id: ");
                   int id3 = cin.nextInt();
-
+                  boolean found6 = false;
                   for (Book b4 : books) {
                       if (b4.getId() == id3) {
+                          found6 = true;
                           books.remove(b4);
                           System.out.println("Book deleted!");
                           break;
                       }
                   }
-                  System.out.println("Book not found.");
+                  if(!found6)System.out.println("Book not found.");
                   break;
               case 7:
                   System.out.print("GOOOOD BYEEEEE !!!! ");
