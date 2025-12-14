@@ -27,7 +27,7 @@ public class Book {
 
     public void setter(String title, String author, int year) {
         if(title==null||author==null|| year<1500 || year>2025){
-            throw new IllegalArgumentException("invalid title,author or the year");
+            throw new IllegalArgumentException();
         }
         this.title = title;
         this.author = author;

@@ -29,7 +29,7 @@ public class Rectangle {
             this.w = w;
             this.h = h;
         }
-        else throw new IllegalArgumentException("Width and height must be > 0");
+        else throw new IllegalArgumentException();
     }
 
 
