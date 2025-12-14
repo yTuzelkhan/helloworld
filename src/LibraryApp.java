@@ -22,13 +22,14 @@ public class LibraryApp {
                           "6. Delete a book by id\n" +
                           "7. Quit "
                   );
-          int choice = Integer.parseInt(cin.nextLine());
+          int choice = cin.nextInt();
+          cin.nextLine();
 
           switch(choice){
               case 1:
-                  if(books==null)System.out.println("No books in the library;");
+                  if(books.size()==0)System.out.println("No books in the library;");
                   else{
-                      for(int i=0;i<books.size();i++){System.out.println((i+1)+"."+books.get(i).getTitle());}
+                      for(int i=0;i<books.size();i++){System.out.println((i+1)+"."+books.get(i).toString());}
                   }
                   break;
 
@@ -38,7 +39,8 @@ public class LibraryApp {
                    System.out.print("Enter author: ");
                    String author = cin.nextLine();
                    System.out.print("Enter year: ");
-                   int year = Integer.parseInt(cin.nextLine());
+                   int year  = cin.nextInt();
+                   cin.nextLine();
                    Book b = new Book(title, author, year);
                    books.add(b);
                    System.out.println("Book added!");
@@ -62,6 +64,7 @@ public class LibraryApp {
               case 4:
                   System.out.print("Enter id: ");
                   int id = cin.nextInt();
+                  cin.nextLine();
                   boolean found4 = false;
                   for (Book b2 : books) {
                       if (b2.getId() == id) {
@@ -80,7 +83,8 @@ public class LibraryApp {
 
               case 5:
                   System.out.print("Enter id: ");
-                  int id1 = cin.nextInt();
+                  int id1  = cin.nextInt();
+                  cin.nextLine();
                   boolean found5 = false;
                   for (Book b3 : books) {
                       if (b3.getId() == id1) {
@@ -99,7 +103,8 @@ public class LibraryApp {
 
               case 6:
                   System.out.print("Enter id: ");
-                  int id3 = Integer.parseInt(cin.nextLine());;
+                  int id3  = cin.nextInt();
+                  cin.nextLine();
                   boolean found6 = false;
                   for (Book b4 : books) {
                       if (b4.getId() == id3) {
@@ -113,7 +118,7 @@ public class LibraryApp {
                   break;
 
               case 7:
-                  System.out.print("GOOOOD BYEEEEE !!!! ");
+                  System.out.print("GOOD BYE !!!! ");
                   return ;
           }
       }

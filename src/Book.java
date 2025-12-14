@@ -27,21 +27,12 @@ public class Book {
 
     public void setter(String title, String author, int year) {
         if(title==null||author==null|| year<1500 || year>2025){
-            throw new IllegalArgumentException("invalid title or author or the year");
+            throw new IllegalArgumentException("invalid title,author or the year");
         }
         this.title = title;
         this.author = author;
         this.year = year;
     }
-
-
-
-
-    public void markAsBorrowed(){
-        available = false;
-    }
-
-
 
 
     public int getId(){
@@ -86,8 +77,15 @@ public class Book {
 
 
 
+    public void markAsBorrowed(){
+        available = false;
+    }
+
+
+
+
     @Override
     public String toString() {
-        return "id:" + id + "\ntitle:" + title + "\nauthor:" + author + "\nyear:" + year + "\navailable:" + available;
+        return "id:" + id + " title:" + title + " author:" + author + " year:" + year + " available:" + available;
     }
 }
